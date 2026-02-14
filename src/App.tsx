@@ -1,5 +1,4 @@
-import { useState, useRef, useEffect } from 'react'
-import './App.css'
+import { useState, useRef } from 'react'
 import confetti from 'canvas-confetti';
 
 function App() {
@@ -30,7 +29,7 @@ function App() {
   });
   cueMusic();
   fireTheHearts();
-  setBeMine(true);
+  setBeMine(true); // Success! :D
 };
 
   function fireTheHearts() {
@@ -61,13 +60,13 @@ function App() {
      {!beMine ? (
       <div className="flex flex-row gap-4 py-5">
         <button 
-          className="bg-rose-500 text-white text-xl rounded-full"
+          className="bg-pink-500 text-white px-4 py-2 rounded hover:bg-pink-600 transition-colors"
           onClick={handleYesClick}
         >
           Yes!
         </button>
         <button 
-          className="bg-rose-500 text-white text-xl rounded-full" 
+          className="bg-gray-300 text-white px-4 py-2 rounded hover:bg-gray-400 transition-colors"
           onClick={() => setBeMine(!beMine)}
         >
           No.
