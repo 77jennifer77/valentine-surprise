@@ -53,24 +53,27 @@ function App() {
   }
 
   return (
-    <div className="w-screen h-screen bg-pink-50 flex items-center justify-center">       
+    <div className="w-screen h-screen bg-pink-50 flex flex-col items-center justify-center">       
     <h1 className="text-3xl font-bold text-pink-600">
-      Will you be my Valentine?
+      Will you be my Valentine? 🌹
     </h1>
-     {!beMine ? (<>
+     {!beMine ? (
+      <div className="flex flex-row gap-4 py-5">
         <button 
-          className="px-8 py-3 rose-500 text-white text-xl rounded-full"
+          className="bg-rose-500 text-white text-xl rounded-full"
           onClick={handleYesClick}
         >
           Yes!
         </button>
         <button 
-          className="px-8 py-3 rose-500 text-white text-xl rounded-full" 
+          className="bg-rose-500 text-white text-xl rounded-full" 
           onClick={() => setBeMine(!beMine)}
         >
           No
         </button>
-      </>): (<div>
+      </div>
+    ) : (
+    <div>
         <h2>Yay! I'm so happy!</h2>
       </div>)}
     </div>
