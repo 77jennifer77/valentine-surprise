@@ -54,7 +54,17 @@ function App() {
 
   return (
     <div className="w-screen h-screen bg-pink-50 flex flex-col items-center justify-center">       
-    <h1 className="text-3xl font-bold text-pink-600">
+<div style={{ width: '300px', height: '300px', position: 'relative' }}>
+    <iframe
+      src="https://giphy.com/embed/vDhDcIEmShbUI"
+      width="100%"
+      height="100%"
+      style={{ position: 'absolute', pointerEvents: 'none', border: '1px solid', borderRadius: '10px' }}
+      frameBorder="0"
+      className="giphy-embed"
+      allowFullScreen
+    ></iframe>
+  </div>    <h1 className="text-3xl font-bold text-pink-600">
       Will you be my Valentine? 🌹
     </h1>
      {!beMine ? (
