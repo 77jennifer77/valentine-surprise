@@ -4,6 +4,7 @@ import confetti from 'canvas-confetti';
 function App() {
   /* boolean tracker of yes/no to be my valentine */
   const [beMine, setBeMine] = useState(false);
+  const [noButtonPosition, setNoButtonPosition] = useState({ x: 0, y: 0 });
 
 
   /* audio ref for the song */
@@ -52,6 +53,14 @@ function App() {
   });
   }
 
+  function buttonOnTheRun() {
+    // Calculate safe boundary (keep button away from screen edges)
+    const x = Math.random() * (window.innerWidth - 150);
+    const y = Math.random() * (window.innerHeight - 150);
+
+    setNoButtonPosition({ x, y });
+  }
+
   return (
     <div className="w-screen h-screen bg-pink-50 flex flex-col items-center justify-center">       
 <div style={{ width: '300px', height: '300px', position: 'relative' }}>
@@ -77,14 +86,19 @@ function App() {
         </button>
         <button 
           className="bg-gray-300 text-white px-4 py-2 rounded hover:bg-gray-400 transition-colors"
-          onClick={() => setBeMine(!beMine)}
+          onMouseEnter={buttonOnTheRun} 
+          onClick={buttonOnTheRun}
+          style={
+            noButtonPosition.x === 0 && noButtonPosition.y === 0
+              ? {position: 'relative'}: { position: 'fixed', left: `${noButtonPosition.x}px`, top: `${noButtonPosition.y}px`, zIndex: 999 } 
+          }
         >
           No.
         </button>
       </div>
     ) : (
     <div>
-        <h2>Yay! I'm so happy!</h2>
+        <h2 className="text-2xl font-bold text-pink-600">Yay! I'm so happy!</h2>
       </div>)}
     </div>
   )
