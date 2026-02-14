@@ -30,6 +30,7 @@ function App() {
   });
   cueMusic();
   fireTheHearts();
+  setBeMine(true);
 };
 
   function fireTheHearts() {
@@ -69,7 +70,7 @@ function App() {
           className="bg-rose-500 text-white text-xl rounded-full" 
           onClick={() => setBeMine(!beMine)}
         >
-          No
+          No.
         </button>
       </div>
     ) : (
