@@ -1,4 +1,5 @@
 import { useState, useRef } from 'react'
+// @ts-ignore
 import confetti from 'canvas-confetti';
 
 function App() {
